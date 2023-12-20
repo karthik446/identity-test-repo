@@ -1,0 +1,22 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DB_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model AcademicIdentity {
+  academicPartnerId        String?
+  createdAt                DateTime @default(now())
+  guildUuid                String?
+  id String @id @default(uuid()) @sample change!
+  internalStudentId        String
+  isDeleted                Boolean?
+  isLocked                 Boolean?
+  isStudent                Boolean?
+  partnerStudentId         String?
+  primaryInternalStudentId String?
+  updatedAt                DateTime @updatedAt
+}
